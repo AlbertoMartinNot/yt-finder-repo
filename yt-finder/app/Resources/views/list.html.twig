@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<title>
+	</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+	
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-6">
+		<h2 style="text-decoration: underline;">-Video List</h2><br>
+		<p class="mark">-Showing the first 8 results ordered by upload date-</p>
+		{% for video in youtube_videos %}
+		<table class="table" style="margin-bottom: 10px; border: 1px solid grey;">
+		<tr class="info"><th><strong>-Title:&nbsp;</strong>{{ video.title }}</th></tr><tr class="active">
+		<td>
+		{{video.description}}<br><br><img class="thumbnail" src="{{ video.thumbnail}}">
+		<strong>
+		-Channel: &nbsp; {{ video.canal }}<br>
+		-Upload Date: {{video.date|date("m/d/y")}}</strong></td></tr></table>
+		{% endfor %}
+		<br>
+		<h2 style="text-decoration: underline;">-Channel list</h2>
+		<table class="table">
+		{% for channel in youtube_channels %}
+		<tr class="info"><th>-Channel Name</th></tr>
+		<tr class="active"><td>{{ channel.title }}</td></tr>
+		{% endfor %}
+		</table>
+		</div>
+	</div>
+</div>
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,3 +1,10 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+finder:
+    resource: "@AppBundle/Controller/"
+    type: annotation
+    prefix: /    
+finder_home:
+    path: /buscar
+    defaults: { _controller: AppBundle:finder:buscar }
